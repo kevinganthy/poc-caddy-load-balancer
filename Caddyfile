@@ -1,0 +1,5 @@
+localhost:80 {
+    reverse_proxy http://front1:5173 http://front2:5173 {
+        lb_policy round_robin
+    }
+}

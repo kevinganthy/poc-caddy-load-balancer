@@ -1,0 +1,35 @@
+services:
+  caddy:
+    image: caddy
+    ports:
+      - 80:80
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+
+  front1:
+    build:
+      context: ./front
+    environment:
+      - VITE_APP_NAME=Front_1
+    ports:
+      - 81:5173
+    volumes:
+      - ./front:/app
+      - /app/node_modules
+
+  front2:
+    build:
+      context: ./front
+    environment:
+      - VITE_APP_NAME=Front_2
+    ports:
+      - 82:5173
+    volumes:
+      - ./front:/app
+      - /app/node_modules
+    
+volumes:
+  caddy_data:
+  caddy_config:
