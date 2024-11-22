@@ -9,7 +9,7 @@ Trois services sont définis :
 * Front 2
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 Se connecter sur <http://localhost> pour voir le load balancer en action.
